@@ -6,9 +6,9 @@
       {
         'el-tiptap-editor': true,
         'el-tiptap-editor--fullscreen': isFullscreen,
-        'el-tiptap-editor--with-footer': showFooter,
+        'el-tiptap-editor--with-footer': showFooter
       },
-      editorClass,
+      editorClass
     ]"
   >
     <div>
@@ -21,7 +21,7 @@
       v-if="isCodeViewMode"
       :class="{
         'el-tiptap-editor__codemirror': true,
-        'border-bottom-radius': isCodeViewMode,
+        'border-bottom-radius': isCodeViewMode
       }"
     >
       <textarea ref="cmTextAreaRef"></textarea>
@@ -31,9 +31,9 @@
       :editor="editor"
       :class="[
         {
-          'el-tiptap-editor__content': true,
+          'el-tiptap-editor__content': true
         },
-        editorContentClass,
+        editorContentClass
       ]"
     />
 
@@ -41,9 +41,9 @@
       v-if="showFooter"
       :class="[
         {
-          'el-tiptap-editor__footer': true,
+          'el-tiptap-editor__footer': true
         },
-        editorFooterClass,
+        editorFooterClass
       ]"
     >
       <span class="el-tiptap-editor__characters">
@@ -73,25 +73,26 @@ import MenuBar from './MenuBar/index.vue';
 import MenuBubble from './MenuBubble/index.vue';
 
 interface Props {
-  extensions: Extensions;
-  content?: string | { content: any, type: string };
-  placeholder?: string;
-  lang?: string;
-  width?: string | number;
-  height?: string | number;
+  extensions: Extensions
+  content?: string | { content: any; type: string }
+  placeholder?: string
+  lang?: string
+  width?: string | number
+  height?: string | number
   editorProps?: EditorProps
-  output: 'html' | 'json';
-  readonly?: boolean;
-  tooltip?: boolean;
-  enableCharCount?: boolean;
-  charCountMax?: number;
-  spellcheck?: boolean;
+  output: 'html' | 'json'
+  readonly?: boolean
+  tooltip?: boolean
+  enableCharCount?: boolean
+  charCountMax?: number
+  spellcheck?: boolean
+  parseOptions: { [key: string]: any }
   // ----- Editor Class -----
-  editorClass?: string | string[] | Record<string, boolean>;
-  editorContentClass: string | string[] | Record<string, boolean>;
-  editorMenubarClass: string | string[] | Record<string, boolean>;
-  editorBubbleMenuClass: string | string[] | Record<string, boolean>;
-  editorFooterClass: string | string[] | Record<string, boolean>;
+  editorClass?: string | string[] | Record<string, boolean>
+  editorContentClass: string | string[] | Record<string, boolean>
+  editorMenubarClass: string | string[] | Record<string, boolean>
+  editorBubbleMenuClass: string | string[] | Record<string, boolean>
+  editorFooterClass: string | string[] | Record<string, boolean>
 }
 
 export default defineComponent({
@@ -100,86 +101,90 @@ export default defineComponent({
   components: {
     EditorContent,
     MenuBar,
-    MenuBubble,
+    MenuBubble
   },
 
   props: {
     content: {
-      validator: prop => typeof prop === 'object' || typeof prop === 'string',
-      default: '',
+      validator: (prop) => typeof prop === 'object' || typeof prop === 'string',
+      default: ''
     },
     extensions: {
       type: Array as () => Extensions,
-      default: () => [],
+      default: () => []
     },
     placeholder: {
       type: String,
-      default: '',
+      default: ''
     },
     lang: {
       type: String,
-      default: 'en',
+      default: 'en'
     },
     width: {
       type: [String, Number],
-      default: undefined,
+      default: undefined
     },
     height: {
       type: [String, Number],
-      default: undefined,
+      default: undefined
     },
     output: {
       type: String,
       default: 'html',
       validator(output: string): boolean {
         return ['html', 'json'].includes(output);
-      },
+      }
     },
     spellcheck: {
       type: Boolean,
-      default: false,
+      default: false
     },
     readonly: {
       type: Boolean,
-      default: false,
+      default: false
     },
     tooltip: {
       type: Boolean,
-      default: true,
+      default: true
     },
     enableCharCount: {
       type: Boolean,
-      default: true,
+      default: true
     },
     editorProps: {
       type: Object as () => EditorProps,
       default: () => {}
     },
+    parseOptions: {
+      type: Object,
+      default: () => {}
+    },
     charCountMax: {
       type: Number,
-      default: undefined,
+      default: undefined
     },
     // ----- Editor Class -----
     editorClass: {
       type: [String, Array, Object],
-      default: undefined,
+      default: undefined
     },
     editorContentClass: {
       type: [String, Array, Object],
-      default: undefined,
+      default: undefined
     },
     editorMenubarClass: {
       type: [String, Array, Object],
-      default: undefined,
+      default: undefined
     },
     editorBubbleMenuClass: {
       type: [String, Array, Object],
-      default: undefined,
+      default: undefined
     },
     editorFooterClass: {
       type: [String, Array, Object],
-      default: undefined,
-    },
+      default: undefined
+    }
   },
   setup(props, { emit }) {
     const extensions = props.extensions
@@ -190,13 +195,13 @@ export default defineComponent({
           showOnlyCurrent: false,
           placeholder: () => {
             return props.placeholder;
-          },
+          }
         }),
         props.enableCharCount
           ? CharacterCount.configure({
-            limit: props.charCountMax,
+            limit: props.charCountMax
           })
-          : null,
+          : null
       ])
       .filter(Boolean);
 
@@ -213,13 +218,20 @@ export default defineComponent({
       emit('onUpdate', output, editor);
     };
     let additionalExtensions: any[] = [];
-    extensions.map(extension => {
-      if (extension?.parent?.config?.nessesaryExtensions || extension?.config?.nessesaryExtensions) {
-        additionalExtensions = [...additionalExtensions, ...(extension?.parent?.config?.nessesaryExtensions || extension?.config?.nessesaryExtensions)];
+    extensions.map((extension) => {
+      if (
+        extension?.parent?.config?.nessesaryExtensions ||
+        extension?.config?.nessesaryExtensions
+      ) {
+        additionalExtensions = [
+          ...additionalExtensions,
+          ...(extension?.parent?.config?.nessesaryExtensions ||
+            extension?.config?.nessesaryExtensions)
+        ];
       }
     });
     const uniqueObjects = [];
-    const seenValues = {} as {[key: string]: boolean};
+    const seenValues = {} as { [key: string]: boolean };
     // remove duplicate extensions
     for (let i = 0; i < additionalExtensions.length; i++) {
       const obj = additionalExtensions[i];
@@ -240,6 +252,7 @@ export default defineComponent({
           return item;
         }
       }),
+      parseOptions: props.parseOptions,
       editable: !props.readonly,
       onCreate: (options) => {
         emit('onCreate', options);
@@ -256,18 +269,18 @@ export default defineComponent({
       onDestroy: (options) => {
         emit('onDestroy', options);
       },
-      onUpdate,
+      onUpdate
     });
 
     watchEffect(() => {
       unref(editor)?.setOptions({
         editorProps: {
           attributes: {
-            spellcheck: String(props.spellcheck),
+            spellcheck: String(props.spellcheck)
           },
           ...props.editorProps
         },
-        editable: !props.readonly,
+        editable: !props.readonly
       });
     });
 
@@ -296,14 +309,14 @@ export default defineComponent({
       return props.enableCharCount && !unref(isCodeViewMode);
     });
     // Reactive prop content
-    function setContent(value:any) {
+    function setContent(value, emitUpdate = false, parseOptions) {
       if (editor.value) {
-        editor.value.commands.setContent(value);
+        editor.value.commands.setContent(value, emitUpdate, parseOptions);
       }
-    };
+    }
     const editorStyle = useEditorStyle({
       width: props.width,
-      height: props.height,
+      height: props.height
     });
 
     provide('t', t);
@@ -320,7 +333,7 @@ export default defineComponent({
       editorStyle,
       setContent
     };
-  },
+  }
 });
 </script>
 

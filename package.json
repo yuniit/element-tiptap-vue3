@@ -1,8 +1,8 @@
 {
-  "name": "element-tiptap-vue3-fixed",
+  "name": "@yuniit/element-tiptap-vue3",
   "version": "1.2.2",
   "description": "🌸A modern WYSIWYG rich-text editor using tiptap and Element Plus for Vue3",
-  "author": "okijhhyu",
+  "author": "yuniit",
   "scripts": {
     "dev": "vite",
     "demo:preview": "vite preview",
@@ -110,9 +110,9 @@
   },
   "resolutions": {},
   "bugs": {
-    "url": "https://github.com/okijhhyu/element-tiptap-vue3/issues"
+    "url": "https://github.com/yuniit/element-tiptap-vue3/issues"
   },
-  "homepage": "https://github.com/okijhhyu/element-tiptap-vue3",
+  "homepage": "https://github.com/yuniit/element-tiptap-vue3",
   "keywords": [
     "editor",
     "wysiwyg",
@@ -131,6 +131,6 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/okijhhyu/element-tiptap-vue3.git"
+    "url": "git+https://github.com/yuniit/element-tiptap-vue3.git"
   }
 }

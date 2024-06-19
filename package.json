@@ -1,6 +1,6 @@
 {
-  "name": "@yuniit/element-tiptap-vue3",
-  "version": "1.2.2",
+  "name": "@yuniit/element-tiptap",
+  "version": "1.2.3",
   "description": "🌸A modern WYSIWYG rich-text editor using tiptap and Element Plus for Vue3",
   "author": "yuniit",
   "scripts": {
@@ -12,8 +12,8 @@
     "lint:fix": "yarn lint --fix",
     "semantic-release": "semantic-release"
   },
-  "main": "./lib/element-tiptap-vue3-fixed.umd.js",
-  "module": "./lib/element-tiptap-vue3-fixed.es.js",
+  "main": "./lib/element-tiptap.umd.js",
+  "module": "./lib/element-tiptap.es.js",
   "files": [
     "lib/*"
   ],

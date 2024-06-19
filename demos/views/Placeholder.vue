@@ -19,7 +19,7 @@ import {
   BulletList,
   OrderedList,
   History,
-} from 'element-tiptap-vue3-fixed';
+} from 'element-tiptap';
 
 const extensions = [
   Doc,

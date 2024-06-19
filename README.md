@@ -20,7 +20,7 @@ It' s final version of lib i fixed all bugs, which i saw, welcome issues if you 
 
 I only done fix bugs and corrected some extentions and delete warnings [original](https://github.com/Leecason/element-tiptap)
 
-if you are Russian company you can refer me job (okijhhyu@gmail.com)
+
 
 English
 
@@ -31,7 +31,7 @@ English
 ## ✨ Features
 
 - 🎨Use [element-plus](https://github.com/element-plus/element-plus) components
-- 💅Many out of box [extensions](https://github.com/okijhhyu/element-tiptap-vue3#extensions) (welcome to submit an issue for feature request👏)
+- 💅Many out of box [extensions](https://github.com/yuniit/element-tiptap-vue3#extensions) (welcome to submit an issue for feature request👏)
 - 🔖Markdown support
 - 📘TypeScript support
 - 🌐I18n support(`en`, `zh`, `pl`, `ru`, `de`, `ko`, `es`, `zh_tw`, `fr`, `pt_br`, `nl`, `he`). welcome to contribute more languages
@@ -44,7 +44,7 @@ English
 ### NPM
 
 ```shell
-npm i element-tiptap-vue3-fixed
+npm i @yuniit/element-tiptap
 ```
 
 #### Install plugin
@@ -53,9 +53,9 @@ npm i element-tiptap-vue3-fixed
 import { createApp } from 'vue';
 import App from './App.vue';
 import ElementPlus from 'element-plus';
-import ElementTiptapPlugin from 'element-tiptap-vue3-fixed';
+import ElementTiptapPlugin from '@yuniit/element-tiptap';
 // import ElementTiptap's styles
-import 'element-tiptap-vue3-fixed/lib/style.css';
+import 'element-tiptap/lib/style.css';
 
 const app = createApp(App);
 
@@ -78,7 +78,7 @@ _Or_
 </template>
 
 <script setup>
-import { ElementTiptap } from 'element-tiptap-vue3-fixed';
+import { ElementTiptap } from 'element-tiptap';
 </script>
 ```
 
@@ -104,7 +104,7 @@ import {
   Strike,
   BulletList,
   OrderedList,
-} from 'element-tiptap-vue3-fixed';
+} from 'element-tiptap';
 
 // editor extensions
 // they will be added to menubar and bubble menu by the order you declare.
@@ -190,7 +190,7 @@ import {
   Commands,
   getSuggestionItems,
   renderItems
-} from 'element-tiptap-vue3-fixed';
+} from 'element-tiptap';
 
 Commands.configure({
   suggestion: {
@@ -259,7 +259,7 @@ import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight';
 import {
   Editor
 } from '@tiptap/core';
-import { CommandButton } from 'element-tiptap-vue3-fixed';
+import { CommandButton } from 'element-tiptap';
 
 export default CodeBlockLowlight.extend({
   addOptions() {
@@ -421,8 +421,8 @@ Specifies the editor i18n language.
 </template>
 
 <script setup>
-import { ElementTiptap } from 'element-tiptap-vue3-fixed';
-import en from 'element-tiptap-vue3-fixed/lib/locales/en';
+import { ElementTiptap } from 'element-tiptap';
+import en from 'element-tiptap/lib/locales/en';
 </script>
 ```
 
@@ -474,4 +474,4 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## 📄 License
 
-[MIT](https://github.com/okijhhyu/element-tiptap-vue3/blob/dev/LICENSE)
+[MIT](https://github.com/yuniit/element-tiptap-vue3/blob/dev/LICENSE)

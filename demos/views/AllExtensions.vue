@@ -73,7 +73,7 @@ import {
   CodeBlockLowlight,
   getSuggestionItems,
   renderItems
-} from 'element-tiptap-vue3-fixed';
+} from 'element-tiptap';
 import codemirror from 'codemirror';
 import 'codemirror/lib/codemirror.css'; // import base style
 import 'codemirror/mode/xml/xml.js'; // language

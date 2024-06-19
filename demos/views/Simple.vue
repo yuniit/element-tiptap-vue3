@@ -34,7 +34,7 @@ import {
   CodeView,
   Fullscreen,
   History,
-} from 'element-tiptap-vue3-fixed';
+} from 'element-tiptap';
 
 import codemirror from 'codemirror';
 import 'codemirror/lib/codemirror.css'; // import base style

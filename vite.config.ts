@@ -52,7 +52,7 @@ export default ({ mode }) => {
           replacement: path.resolve(__dirname, 'demos'),
         },
         {
-          find: 'element-tiptap-vue3-fixed',
+          find: 'element-tiptap',
           replacement: path.resolve(__dirname, 'src/index.ts'),
         },
       ],
@@ -65,7 +65,7 @@ export default ({ mode }) => {
         lib: {
           entry: path.resolve(srcDir, 'index.ts'),
           name: 'ElementTiptapVue3Fixed',
-          fileName: 'element-tiptap-vue3-fixed',
+          fileName: 'element-tiptap',
         },
         // https://rollupjs.org/guide/en/#big-list-of-options
         rollupOptions: {

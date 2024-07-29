@@ -1,4 +1,4 @@
-<template>
+  <template>
   <div>
     <command-button
       :command="openEditImageDialog"
@@ -49,6 +49,17 @@
             </el-form-item>
           </el-col>
         </el-form-item>
+
+        <el-form-item>
+          <el-col :span="11">
+            <el-form-item
+              label="Margin"
+            >
+              <el-input v-model="imageAttrs.margin"  placeholder="top right bottom left "/>
+            </el-form-item>
+          </el-col>
+
+        </el-form-item>
       </el-form>
 
       <template #footer>
@@ -89,8 +100,8 @@ export default defineComponent({
   },
 
   props: {
-    node: nodeViewProps['node'],
-    updateAttrs: nodeViewProps['updateAttributes'],
+    node: nodeViewProps.node,
+    updateAttrs: nodeViewProps.updateAttributes,
     buttonIcon: {
       default: '',
       type: String
@@ -123,6 +134,7 @@ export default defineComponent({
         alt: this.node!.attrs.alt,
         width: this.node!.attrs.width,
         height: this.node!.attrs.height,
+        margin: this.node!.attrs.margin,
       };
     },
 
@@ -137,6 +149,7 @@ export default defineComponent({
         alt: this.imageAttrs.alt,
         width: width >= 0 ? width : null,
         height: height >= 0 ? height : null,
+        margin: this.imageAttrs.margin || '',
       });
 
       this.closeEditImageDialog();

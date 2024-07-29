@@ -84,7 +84,21 @@ const Image = TiptapImage.extend<CustomImageOptions>({
       },
       draggable: {
         default: this.options.draggable
-      }
+      },
+      margin: {
+        default: null,
+        parseHTML: (element) => {
+          const margin =
+            element.style.margin || element.getAttribute('data-margin') || element.getAttribute('margin');
+
+          return margin;
+        },
+        renderHTML: (attributes) => {
+          return {
+            'data-margin': attributes.margin,
+          };
+        },
+      },
     };
   },
 

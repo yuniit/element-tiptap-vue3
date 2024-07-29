@@ -1,11 +1,12 @@
 <template>
-  <node-view-wrapper as="span" :class="imageViewClass">
+  <node-view-wrapper as="span" :class="imageViewClass" :style="margin" >
     <div
       :class="{
         'image-view__body--focused': selected && editor?.isEditable && !isDragging,
         'image-view__body--resizing': resizing && editor?.isEditable && !isDragging,
         'image-view__body': editor?.isEditable
       }"
+
     >
       <img
         contenteditable="false"
@@ -132,19 +133,19 @@ export default defineComponent({
     src(): string {
       return this.node!.attrs.src;
     },
-
     width(): number {
       return this.node!.attrs.width;
     },
-
     height(): number {
       return this.node!.attrs.height;
     },
-
     display(): ImageDisplay {
       return this.node!.attrs.display;
     },
-
+    margin(): string {
+      const margin = this.node!.attrs.margin;
+      return margin ? `margin: ${margin}` : '';
+    },
     imageViewClass() {
       return ['image-view', `image-view--${this.display}`];
     },

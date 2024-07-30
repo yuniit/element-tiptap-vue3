@@ -1,4 +1,4 @@
-import { Editor } from '@tiptap/core';
+import { Editor, mergeAttributes } from '@tiptap/core';
 import { VueNodeViewRenderer } from '@tiptap/vue-3';
 import TiptapImage, { ImageOptions } from '@tiptap/extension-image';
 import InsertImageCommandButton from '@/components/MenuCommands/Image/InsertImageCommandButton.vue';
@@ -126,7 +126,12 @@ const Image = TiptapImage.extend<CustomImageOptions>({
   addNodeView() {
     return VueNodeViewRenderer(ImageView);
   },
+  renderHTML({ HTMLAttributes }) {
+    const margin = `margin: ${HTMLAttributes['data-margin']}`;
+    const style = `${margin};`;
 
+    return ['img', mergeAttributes(this.options.HTMLAttributes, HTMLAttributes, { style })];
+  },
   parseHTML() {
     return [
       {

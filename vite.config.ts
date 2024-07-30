@@ -64,7 +64,7 @@ export default ({ mode }) => {
         minify: 'esbuild',
         lib: {
           entry: path.resolve(srcDir, 'index.ts'),
-          name: 'ElementTiptapVue3Fixed',
+          name: 'ElementTiptapVue3',
           fileName: 'element-tiptap',
         },
         // https://rollupjs.org/guide/en/#big-list-of-options

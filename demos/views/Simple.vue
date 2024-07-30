@@ -34,6 +34,7 @@ import {
   CodeView,
   Fullscreen,
   History,
+  Box
 } from 'element-tiptap';
 
 import codemirror from 'codemirror';
@@ -66,14 +67,48 @@ const extensions = [
     codemirror,
     codemirrorOptions: {
       styleActiveLine: true,
-      autoCloseTags: true,
-    },
+      autoCloseTags: true
+    }
   }),
   Fullscreen,
   History,
+  Box.configure({ bubble: true })
 ];
 
 const content = ref(
   '<h2 style="text-align: center;">Welcome To Element Tiptap Editor Demo</h2><p>🔥 <strong>Element Tiptap Editor </strong>🔥is a WYSIWYG rich-text editor using&nbsp; <a href="https://github.com/scrumpy/tiptap" target="_blank" ref="nofollow noopener noreferrer">tiptap</a>&nbsp;and <a href="https://github.com/element-plus/element-plus" target="_blank" ref="nofollow noopener noreferrer">element-plus</a>&nbsp;for Vue3,<img src="https://i.ibb.co/nbRN3S2/undraw-upload-87y9.png" alt="" title="" height="200" data-display="right"> that\'s easy to use, friendly to developers, fully extensible and clean in design.</p><p></p><p style="text-align: right;">👉Click on the image to get started image features 👉</p><p></p><p>You can switch to <strong>Code View </strong>💻 mode and toggle <strong>Fullscreen</strong> 📺 in this demo.</p><p></p><p><strong>Got questions or need help or feature request?</strong></p><p>🚀 <strong>welcome to submit an <a href="https://github.com/Leecason/element-tiptap/issues" target="_blank" ref="nofollow noopener noreferrer">issue</a></strong> 😊</p><p>I\'m continuously working to add in new features.</p><p></p><blockquote><p>This demo is simple, switch tab for more features.</p><p>All demos source code: <a href="https://github.com/Leecason/element-tiptap/blob/master/demos/views/Index.vue" target="_blank" ref="nofollow noopener noreferrer">source code 🔗</a></p></blockquote>'
 );
 </script>
+
+<style lang="scss">
+//  span[data-type='box'] {
+//       display: inline-block;
+//       float: none;
+//       line-height: 0;
+//       margin:0;
+//       max-width: 100%;
+//       -webkit-user-select: none;
+//       -moz-user-select: none;
+//       user-select: none;
+//       vertical-align: baseline;
+//       white-space: normal;
+
+//       &[data-display='left'] {
+//         position: absolute;
+//         left: 0;
+//         float: none;
+//       }
+//       &[data-display='right'] {
+//         position: absolute;
+//         right: 0;
+//         float: none;
+//       }
+//       &[data-display='inline'] {
+//         margin-left: 12px;
+//         margin-right: 12px;
+//       }
+//       &[data-display='block'] {
+//         display: block;
+//       }
+//     }
+</style>

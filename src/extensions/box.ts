@@ -99,7 +99,7 @@ const BoxNode = Node.create({
     const style = `${width}; ${height}; ${border}; ${margin}`;
 
     return [
-      'span',
+      'div',
       mergeAttributes(this.options.HTMLAttributes, HTMLAttributes, {
         'data-type': 'box',
         style
@@ -111,7 +111,7 @@ const BoxNode = Node.create({
       {
         tag: 'p'
       },
-      { tag: 'span' }
+      { tag: 'div' }
     ];
   }
 });

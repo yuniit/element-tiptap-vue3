@@ -93,7 +93,7 @@ export default defineComponent({
     },
     marginStyle(): string {
       const margin = this.node!.attrs['data-margin'];
-      return margin ? `margin: ${margin}` : null;
+      return margin ? `margin: ${margin}` : '';
     },
     imageViewClass() {
       return ['image-view', `image-view--${this.display}`];

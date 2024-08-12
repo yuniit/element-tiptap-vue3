@@ -272,13 +272,14 @@
       user-select: none;
       vertical-align: baseline;
       &--inline {
-        margin-left: 12px;
-        margin-right: 12px;
+        // margin-left: 12px;
+        // margin-right: 12px;
+        display: inline-block;
       }
 
-      &--block {
-        display: block;
-      }
+      // &--block {
+      //   display: block;
+      // }
 
       &--left {
         float: left;

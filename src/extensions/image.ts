@@ -68,8 +68,6 @@ const Image = TiptapImage.extend<CustomImageOptions>({
             dp = ImageDisplay.FLOAT_LEFT;
           } else if (cssFloat === 'right' && !display) {
             dp = ImageDisplay.FLOAT_RIGHT;
-          } else if (!cssFloat && display === 'block') {
-            dp = ImageDisplay.BREAK_TEXT;
           } else {
             dp = ImageDisplay.INLINE;
           }

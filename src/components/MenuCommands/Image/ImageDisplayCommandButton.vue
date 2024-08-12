@@ -50,8 +50,8 @@ export default defineComponent({
     CommandButton,
   },
   props: {
-    node: nodeViewProps['node'],
-    updateAttrs: nodeViewProps['updateAttributes'],
+    node: nodeViewProps.node,
+    updateAttrs: nodeViewProps.updateAttributes,
     buttonIcon: {
       default: '',
       type: String
@@ -62,13 +62,12 @@ export default defineComponent({
     return {
       displayCollection: [
         ImageDisplay.INLINE,
-        ImageDisplay.BREAK_TEXT,
         ImageDisplay.FLOAT_LEFT,
         ImageDisplay.FLOAT_RIGHT,
       ],
     };
   },
-  
+
   setup() {
     const t = inject('t');
     const enableTooltip = inject('enableTooltip', true);

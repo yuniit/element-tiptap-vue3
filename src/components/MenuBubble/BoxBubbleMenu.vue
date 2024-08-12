@@ -146,7 +146,6 @@ export default defineComponent({
     return {
       displayCollection: [
         ImageDisplay.INLINE,
-        ImageDisplay.BREAK_TEXT,
         ImageDisplay.FLOAT_LEFT,
         ImageDisplay.FLOAT_RIGHT
       ],

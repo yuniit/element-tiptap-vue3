@@ -52,7 +52,7 @@ const BoxNode = Node.create({
       ...this.parent?.(),
       width: 100,
       height: 100,
-      display: 'block',
+      display: 'inline',
       'border-width': 1,
       'border-color': '#000',
       button({
@@ -99,7 +99,7 @@ const BoxNode = Node.create({
     const style = `${width}; ${height}; ${border}; ${margin}`;
 
     return [
-      'div',
+      'span',
       mergeAttributes(this.options.HTMLAttributes, HTMLAttributes, {
         'data-type': 'box',
         style
@@ -107,12 +107,7 @@ const BoxNode = Node.create({
     ];
   },
   parseHTML() {
-    return [
-      {
-        tag: 'p'
-      },
-      { tag: 'div' }
-    ];
+    return [{ tag: 'span' }];
   }
 });
 

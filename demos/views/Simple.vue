@@ -41,7 +41,8 @@ import {
   Fullscreen,
   History,
   Box,
-  FontSize
+  FontSize,
+
 } from 'element-tiptap';
 
 import codemirror from 'codemirror';
@@ -50,11 +51,24 @@ import 'codemirror/mode/xml/xml.js'; // language
 import 'codemirror/addon/selection/active-line.js'; // require active-line.js
 import 'codemirror/addon/edit/closetag.js'; // autoCloseTags
 
+const CustomHorizontalRule = HorizontalRule.extend({
+  renderHTML({ HTMLAttributes }) {
+    return ['hr', mergeAttributes(HTMLAttributes, this.options.HTMLAttributes)];
+  },
+  addAttributes() {
+    return {
+      ...this.parent?.(),
+      style: {
+        default: null,
+      },
+    };
+  },
+});
+
 const extensions = [
   Doc,
   Text,
   Paragraph,
-  Box.configure({ bubble: true, inline: true }),
   FontSize,
   Heading.configure({ level: 5 }),
   Bold.configure({ bubble: true }),
@@ -71,21 +85,22 @@ const extensions = [
   // TaskList,
   Indent,
   // HardBreak,
-  // HorizontalRule.configure({ bubble: true }),
-  // CodeView.configure({
-  //   codemirror,
-  //   codemirrorOptions: {
-  //     styleActiveLine: true,
-  //     autoCloseTags: true
-  //   }
-  // }),
+  CustomHorizontalRule.configure({ bubble: true }),
+  CodeView.configure({
+    codemirror,
+    codemirrorOptions: {
+      styleActiveLine: true,
+      autoCloseTags: true
+    }
+  }),
   // Fullscreen,
-  // History,
+  History,
+  Box.configure({ bubble: true, inline: true }),
 
 ];
 
 const content = ref(
-  '<p><span data-width="100" data-height="100" data-border-width="1" data-border-color="#000" data-display="inline" data-type="box" style="width: 100px; height: 100px; border: 1px solid #000; "></span></p>'
+  '<p><span> HELLO WORLD</span></p> <hr style="margin: 5px;"/> <p><span data-width="100" data-height="100" data-border-width="1" data-border-color="#000" data-display="inline" data-type="box" style="width: 100px; height: 100px; border: 1px solid #000; "></span></p>'
 );
 
 const clickMe = () => {

@@ -109,6 +109,15 @@ const BoxNode = Node.create({
   parseHTML() {
     return [{
       tag: 'span',
+      getAttrs: element => {
+        const isBox = (element as HTMLElement).getAttribute('data-type') === 'box';
+
+        if (!isBox) {
+          return false;
+        }
+
+        return {};
+      },
       priority: 1000
     }];
   }

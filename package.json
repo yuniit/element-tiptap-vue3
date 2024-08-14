@@ -1,6 +1,6 @@
 {
   "name": "@yuniit/element-tiptap",
-  "version": "1.2.10",
+  "version": "1.2.11",
   "description": "🌸A modern WYSIWYG rich-text editor using tiptap and Element Plus for Vue3",
   "author": "yuniit",
   "scripts": {

@@ -107,7 +107,10 @@ const BoxNode = Node.create({
     ];
   },
   parseHTML() {
-    return [{ tag: 'span' }];
+    return [{
+      tag: 'span',
+      priority: 1000
+    }];
   }
 });
 

@@ -2,7 +2,7 @@
   <div>
     <command-button
       :enable-tooltip="enableTooltip"
-      :tooltip="t('editor.extensions.Image.buttons.insert_image.tooltip')"
+      :tooltip="t('editor.extensions.Box.tooltip')"
       :readonly="isCodeViewMode"
       icon="square"
       :button-icon="buttonIcon"

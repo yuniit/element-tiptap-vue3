@@ -10,21 +10,83 @@ const Table = TiptapTable.extend({
     return {
       ...this.parent?.(),
       buttonIcon: '',
-      button({ editor, extension }: { editor: Editor; extension: any; t: (...args: any[]) => string }) {
+      button({
+        editor,
+        extension
+      }: {
+        editor: Editor
+        extension: any
+        t: (...args: any[]) => string
+      }) {
         return {
           component: TablePopover,
           componentProps: {
             editor,
-            buttonIcon: extension.options.buttonIcon,
-          },
+            buttonIcon: extension.options.buttonIcon
+          }
         };
-      },
+      }
     };
   },
 
   addExtensions() {
-    return [TableRow, TableHeader, TableCell];
-  },
+    return [
+      TableRow.extend({
+        addAttributes() {
+          return {
+            ...this.parent?.(),
+            class: {
+              default: null,
+              parseHTML: (element) => element.getAttribute('class'),
+              renderHTML: (attributes) => {
+                if (attributes.class) {
+                  return {
+                    class: attributes.class
+                  };
+                }
+              }
+            }
+          };
+        }
+      }),
+      TableHeader.extend({
+        addAttributes() {
+          return {
+            ...this.parent?.(),
+            class: {
+              default: null,
+              parseHTML: (element) => element.getAttribute('class'),
+              renderHTML: (attributes) => {
+                if (attributes.class) {
+                  return {
+                    class: attributes.class
+                  };
+                }
+              }
+            }
+          };
+        }
+      }),
+      TableCell.extend({
+        addAttributes() {
+          return {
+            ...this.parent?.(),
+            class: {
+              default: null,
+              parseHTML: (element) => element.getAttribute('class'),
+              renderHTML: (attributes) => {
+                if (attributes.class) {
+                  return {
+                    class: attributes.class
+                  };
+                }
+              }
+            }
+          };
+        }
+      })
+    ];
+  }
 });
 
 export default Table;

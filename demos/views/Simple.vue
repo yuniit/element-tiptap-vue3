@@ -42,7 +42,7 @@ import {
   History,
   Box,
   FontSize,
-
+  Table
 } from 'element-tiptap';
 
 import codemirror from 'codemirror';
@@ -59,10 +59,10 @@ const CustomHorizontalRule = HorizontalRule.extend({
     return {
       ...this.parent?.(),
       style: {
-        default: null,
-      },
+        default: null
+      }
     };
-  },
+  }
 });
 
 const extensions = [
@@ -96,7 +96,7 @@ const extensions = [
   // Fullscreen,
   History,
   Box.configure({ bubble: true, inline: true }),
-
+  Table.configure({ resizable: true }),
 ];
 
 const content = ref(

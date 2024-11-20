@@ -27,7 +27,7 @@
         <span>
           <command-button
             :enable-tooltip="enableTooltip"
-            :tooltip="t('editor.extensions.Image.buttons.display.tooltip')"
+            :tooltip="t('editor.extensions.Box.position')"
             icon="image-align"
             :button-icon="''"
           />

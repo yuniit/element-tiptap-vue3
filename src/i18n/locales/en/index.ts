@@ -54,6 +54,10 @@ export default {
           tooltip: 'Open link',
         },
       },
+      Box: {
+        tooltip: 'Box',
+        position: 'Position',
+      },
       Image: {
         buttons: {
           insert_image: {
